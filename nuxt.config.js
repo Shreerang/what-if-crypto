@@ -15,6 +15,12 @@ export default {
     ]
   },
 
+  target: 'static',
+  
+  router: {
+    base: '/what-if-crypto/'
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
