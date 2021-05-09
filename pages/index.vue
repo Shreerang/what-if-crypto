@@ -197,10 +197,16 @@ body {
 
 h1,
 h2 {
-  font-size: 5em;
+  font-size: 4em;
   background: -webkit-linear-gradient(45deg, #2f25dc, #00ab64 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+h2.net-worth {
+  width: 100%;
+  font-size: 2.5em;
+  word-break: break-all;
 }
 
 .ads {
