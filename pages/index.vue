@@ -51,7 +51,7 @@
         </a>
       </b-col>
       <b-col>
-        <a href="#">
+        <a href="https://www.binance.com/en">
           <svg
             class="binance"
             xmlns="http://www.w3.org/2000/svg"
