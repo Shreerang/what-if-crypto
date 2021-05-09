@@ -1,54 +1,60 @@
-export default {
-  // Global page headers: https://go.nuxtjs.dev/config-head
+module.exports = {
+  mode: 'universal',
+  /*
+   ** Headers of the page
+   */
   head: {
-    title: 'what-if-crypto',
-    htmlAttrs: {
-      lang: 'en'
-    },
+    title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-
-  target: 'static',
-  
-  router: {
-    base: '/what-if-crypto/'
-  },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  /*
+   ** Customize the progress-bar color
+   */
+  loading: { color: '#fff' },
+  /*
+   ** Global CSS
+   */
+  css: [],
+  /*
+   ** Plugins to load before mounting the App
+   */
+  plugins: [],
+  /*
+   ** Nuxt.js dev-modules
+   */
   buildModules: [
+    // Doc: https://github.com/nuxt-community/eslint-module
+    // '@nuxtjs/eslint-module'
   ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
+  /*
+   ** Nuxt.js modules
+   */
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
+    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    'bootstrap-vue/nuxt',
   ],
-
-  axios: {
-    // extra config e.g
-    baseURL: process.env.API_URL
-  },
-
-  // Build Configuration: https://go.nuxtjs.dev/config-build
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {},
+  /*
+   ** Build configuration
+   */
   build: {
+    /*
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
 }
