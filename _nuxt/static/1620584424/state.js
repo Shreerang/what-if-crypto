@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fwhat-if-crypto\u002F_nuxt\u002Fstatic\u002F1620584424",layout:"default",error:a,serverRendered:true,routePath:"\u002F",config:{_app:{basePath:"\u002Fwhat-if-crypto\u002F",assetsPath:"\u002Fwhat-if-crypto\u002F_nuxt\u002F",cdnURL:a}}}}(null));
