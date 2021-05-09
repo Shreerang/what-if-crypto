@@ -16,6 +16,13 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+
+  target: 'static',
+
+  router: {
+    base: '/what-if-crypto/'
+  },
+  
   /*
    ** Customize the progress-bar color
    */
