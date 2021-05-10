@@ -5,7 +5,7 @@
       <b-form>
         <h4>you had invested</h4>
         <br /><br />
-        <b-input-group prepend="USD" class="mb-2 mr-sm-2 mb-sm-0">
+        <b-input-group prepend="USD" class="mb-2 mr-sm-2 mb-sm-0" size="lg">
           <b-form-input
             v-model.number="dollarValue"
             placeholder="Enter a positive $ value"
@@ -15,15 +15,21 @@
         <h4>in</h4>
         <b-form-row>
           <b-col>
-            <b-form-select
-              class="mb-2 mr-sm-2 mb-sm-0"
-              v-model="selectedCrypto"
-              :options="cryptoOptions"
-              @change="changeCrypto(selectedCrypto)"
-            ></b-form-select>
+            <b-input-group class="mb-2 mr-sm-2 mb-sm-0" size="lg">
+              <b-input-group-prepend is-text>
+                <IconCrypto :coinname='this.selectedCrypto' color='color' format='svg' />
+              </b-input-group-prepend>
+              <b-form-select
+                class="mb-2 mr-sm-2 mb-sm-0"
+                v-model="selectedCrypto"
+                :options="cryptoOptions"
+                @change="changeCrypto(selectedCrypto)"
+              ></b-form-select>
+            </b-input-group>
           </b-col>
           <b-col>
             <b-form-select
+              size="lg"
               class="mb-2 mb-sm-0"
               v-model="selectedTimeInterval"
               :options="timeIntervalOptions"
@@ -93,7 +99,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import IconCrypto from "vue-cryptocurrency-icons";
 
 export default {
   data() {
@@ -101,9 +108,9 @@ export default {
       dollarValue: 10,
       netWorth: 10,
 
-      selectedCrypto: null,
+      selectedCrypto: '',
       cryptoOptions: [
-        { value: null, text: 'Please select a crypto' },
+        { value: '', text: 'Please select a crypto' },
         { value: 'BTC', text: 'Bitcoin' },
         { value: 'ETH', text: 'Ethereum' },
         { value: 'BNB', text: 'Binance' },
