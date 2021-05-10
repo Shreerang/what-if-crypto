@@ -9,7 +9,7 @@
           <b-col md class="mb-3">
             <b-input-group class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-input-group-prepend is-text>
-                <span>{{ country }}</span>
+                <span>USD</span>
               </b-input-group-prepend>
               <b-form-input
                 v-model.number="dollarValue"
@@ -47,8 +47,8 @@
       <br />
       <h4>
         It would be worth
-        <h2 class="net-worth" v-if="country === 'USD'">${{ netWorth }}</h2>
-        <h2 class="net-worth" v-if="country === 'INR'">&#8377;{{ netWorth }}</h2>
+        <h2 class="net-worth">${{ netWorth }}</h2>
+        <!-- <h2 class="net-worth" v-if="country === 'INR'">&#8377;{{ netWorth }}</h2> -->
         today
       </h4>
     </b-row>
@@ -155,11 +155,11 @@ export default {
       incidents: "",
     };
   },
-  computed: {
-    country: function() {
-      return process.env.COUNTRY_KEY
-    }
-  },
+  // computed: {
+  //   country: function() {
+  //     return process.env.COUNTRY_KEY
+  //   }
+  // },
   methods: {
     async getIncidents() {
       return axios
