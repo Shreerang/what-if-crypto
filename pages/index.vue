@@ -7,7 +7,7 @@
         <br />
         <b-form-row class="mb-3">
           <b-col md class="mb-3">
-            <b-input-group prepend="USD" class="mb-2 mr-sm-2 mb-sm-0" size="lg">
+            <b-input-group :prepend=this.country class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-form-input
                 v-model.number="dollarValue"
                 placeholder="Enter a positive $ value"
@@ -44,7 +44,8 @@
       <br />
       <h4>
         It would be worth
-        <h2 class="net-worth">${{ netWorth }}</h2>
+        <h2 class="net-worth" v-if="this.country === 'USD'">${{ netWorth }}</h2>
+        <h2 class="net-worth" v-else>&#8377;{{ netWorth }}</h2>
         today
       </h4>
     </b-row>
@@ -111,6 +112,7 @@ export default {
     return {
       dollarValue: 10,
       netWorth: 10,
+      country: process.env.COUNTRY_KEY,
 
       selectedCrypto: "",
       cryptoOptions: [

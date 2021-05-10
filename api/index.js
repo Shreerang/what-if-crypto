@@ -8,9 +8,10 @@ app.get('/net-worth', async (req, res, next) => {
     const timeData = req.query.time;
     const currencyData = req.query.currency
     const netWorth = await axios.get(
-        `https://api.nomics.com/v1/currencies/ticker?key=` + process.env.API_KEY + `&ids=` + cryptoData + `&interval=` + timeData
+        `https://api.nomics.com/v1/currencies/ticker?key=` + process.env.API_KEY + `&ids=` + cryptoData + `&convert=` + process.env.COUNTRY_KEY + `&interval=` + timeData
     )
     const finalValue = Number(currencyData) + ((Number(currencyData) * (Number(netWorth.data[0][timeData].price_change_pct) * 100)) / 100)
+    // const finalValue = 0;
     res.json(Number(finalValue))
 })
 
