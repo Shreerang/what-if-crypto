@@ -62,7 +62,7 @@ module.exports = {
   },
 
   publicRuntimeConfig: {
-    country: process.env.COUNTRY_API || 'USD',
+    country: process.env.COUNTRY_KEY || 'USD',
   },
 
   /*
