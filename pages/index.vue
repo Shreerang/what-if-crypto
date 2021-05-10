@@ -7,7 +7,7 @@
         <br />
         <b-form-row class="mb-3">
           <b-col md class="mb-3">
-            <b-input-group :prepend=this.country class="mb-2 mr-sm-2 mb-sm-0" size="lg">
+            <b-input-group :prepend="this.country" class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-form-input
                 v-model.number="dollarValue"
                 placeholder="Enter a positive $ value"
