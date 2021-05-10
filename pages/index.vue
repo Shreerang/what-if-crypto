@@ -48,7 +48,7 @@
       <h4>
         It would be worth
         <h2 class="net-worth" v-if="this.country === 'USD'">${{ netWorth }}</h2>
-        <h2 class="net-worth" v-else>&#8377;{{ netWorth }}</h2>
+        <h2 class="net-worth" v-if="this.country === 'INR'">&#8377;{{ netWorth }}</h2>
         today
       </h4>
     </b-row>
