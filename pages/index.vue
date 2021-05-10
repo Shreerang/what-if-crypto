@@ -9,7 +9,7 @@
           <b-col md class="mb-3">
             <b-input-group class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-input-group-prepend is-text>
-                <span>{{ this.country }}</span>
+                <span>{{ country }}</span>
               </b-input-group-prepend>
               <b-form-input
                 v-model.number="dollarValue"
@@ -47,8 +47,8 @@
       <br />
       <h4>
         It would be worth
-        <h2 class="net-worth" v-if="this.country === 'USD'">${{ netWorth }}</h2>
-        <h2 class="net-worth" v-if="this.country === 'INR'">&#8377;{{ netWorth }}</h2>
+        <h2 class="net-worth" v-if="country === 'USD'">${{ netWorth }}</h2>
+        <h2 class="net-worth" v-if="country === 'INR'">&#8377;{{ netWorth }}</h2>
         today
       </h4>
     </b-row>
@@ -115,7 +115,6 @@ export default {
     return {
       dollarValue: 10,
       netWorth: 10,
-      country: process.env.COUNTRY_KEY,
 
       selectedCrypto: "",
       cryptoOptions: [
@@ -155,6 +154,11 @@ export default {
 
       incidents: "",
     };
+  },
+  computed: {
+    country: function() {
+      return process.env.COUNTRY_KEY
+    }
   },
   methods: {
     async getIncidents() {
