@@ -4,33 +4,36 @@
       <h1>If only!</h1>
       <b-form>
         <h4>you had invested</h4>
-        <br /><br />
-        <b-input-group prepend="USD" class="mb-2 mr-sm-2 mb-sm-0" size="lg">
-          <b-form-input
-            v-model.number="dollarValue"
-            placeholder="Enter a positive $ value"
-            @change="chageDollarValue(dollarValue)"
-          ></b-form-input>
-        </b-input-group>
-        <h4>in</h4>
-        <b-form-row>
-          <b-col>
+        <br />
+        <b-form-row class="mb-3">
+          <b-col md class="mb-3">
+            <b-input-group prepend="USD" class="mb-2 mr-sm-2 mb-sm-0" size="lg">
+              <b-form-input
+                v-model.number="dollarValue"
+                placeholder="Enter a positive $ value"
+                @change="chageDollarValue(dollarValue)"
+              ></b-form-input>
+            </b-input-group>
+          </b-col>
+          <b-col md class="mb-3">
             <b-input-group class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-input-group-prepend is-text>
-                <IconCrypto :coinname='this.selectedCrypto' color='color' format='svg' />
+                <IconCrypto
+                  :coinname="this.selectedCrypto"
+                  color="color"
+                  format="svg"
+                />
               </b-input-group-prepend>
               <b-form-select
-                class="mb-2 mr-sm-2 mb-sm-0"
                 v-model="selectedCrypto"
                 :options="cryptoOptions"
                 @change="changeCrypto(selectedCrypto)"
               ></b-form-select>
             </b-input-group>
           </b-col>
-          <b-col>
+          <b-col md class="mb-3">
             <b-form-select
               size="lg"
-              class="mb-2 mb-sm-0"
               v-model="selectedTimeInterval"
               :options="timeIntervalOptions"
               @change="changeTimeInterval(selectedTimeInterval)"
@@ -38,17 +41,18 @@
           </b-col>
         </b-form-row>
       </b-form>
-      <br /><br />
+      <br />
       <h4>
         It would be worth
         <h2 class="net-worth">${{ netWorth }}</h2>
         today
       </h4>
     </b-row>
-    <b-row>
+    <b-row class="mb-3">
       <h4 class="ads">
         Time in market is more important than timing the market!
       </h4>
+      <div class="advice">* Not financial advice</div>
     </b-row>
     <b-row class="brand-logos">
       <b-col>
@@ -99,7 +103,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import IconCrypto from "vue-cryptocurrency-icons";
 
 export default {
@@ -108,80 +112,88 @@ export default {
       dollarValue: 10,
       netWorth: 10,
 
-      selectedCrypto: '',
+      selectedCrypto: "",
       cryptoOptions: [
-        { value: '', text: 'Please select a crypto' },
-        { value: 'BTC', text: 'Bitcoin' },
-        { value: 'ETH', text: 'Ethereum' },
-        { value: 'BNB', text: 'Binance' },
-        { value: 'DOGE', text: 'Dogecoin' },
-        { value: 'XRP', text: 'Ripple' },
-        { value: 'USDT', text: 'Tether' },
-        { value: 'ADA', text: 'Cardano' },
-        { value: 'DOT', text: 'Polkadot' },
-        { value: 'BCH', text: 'Bitcoin Cash' },
-        { value: 'LTC', text: 'Litecoin' },
-        { value: 'UNI', text: 'Uniswap Protocol Token' },
-        { value: 'LINK', text: 'ChainLink' },
-        { value: 'HEX', text: 'HEX' },
-        { value: 'VET', text: 'VeChain Thor' },
-        { value: 'USDC', text: 'USD Coin' },
-        { value: 'ETC', text: 'Ethereum Classic' },
-        { value: 'XLM', text: 'Stellar' },
-        { value: 'SOL', text: 'Solana' },
+        { value: "", text: "Please select a crypto" },
+        { value: "BTC", text: "Bitcoin" },
+        { value: "ETH", text: "Ethereum" },
+        { value: "BNB", text: "Binance" },
+        { value: "DOGE", text: "Dogecoin" },
+        { value: "XRP", text: "Ripple" },
+        { value: "USDT", text: "Tether" },
+        { value: "ADA", text: "Cardano" },
+        { value: "DOT", text: "Polkadot" },
+        { value: "BCH", text: "Bitcoin Cash" },
+        { value: "LTC", text: "Litecoin" },
+        { value: "UNI", text: "Uniswap Protocol Token" },
+        { value: "LINK", text: "ChainLink" },
+        { value: "HEX", text: "HEX" },
+        { value: "VET", text: "VeChain Thor" },
+        { value: "USDC", text: "USD Coin" },
+        { value: "ETC", text: "Ethereum Classic" },
+        { value: "XLM", text: "Stellar" },
+        { value: "SOL", text: "Solana" },
       ],
-      changedCryptoValue: '',
+      changedCryptoValue: "",
 
       selectedTimeInterval: null,
       timeIntervalOptions: [
-        { value: null, text: 'Please select a time interval' },
-        { value: '1h', text: 'Last 1 hour' },
-        { value: '1d', text: 'Yesterday' },
-        { value: '7d', text: 'Last week' },
-        { value: '30d', text: 'Last month' },
-        { value: '365d', text: 'Last year' },
-        { value: 'ytd', text: 'on Jan 1, 2021' },
+        { value: null, text: "Please select a time interval" },
+        { value: "1h", text: "Last 1 hour" },
+        { value: "1d", text: "Yesterday" },
+        { value: "7d", text: "Last week" },
+        { value: "30d", text: "Last month" },
+        { value: "365d", text: "Last year" },
+        { value: "ytd", text: "on Jan 1, 2021" },
       ],
-      changedTimeIntervalValue: '',
+      changedTimeIntervalValue: "",
 
-      incidents: '',
-    }
+      incidents: "",
+    };
   },
   methods: {
     async getIncidents() {
-      return axios.get('/api/net-worth', { params: { currency: this.dollarValue, crypto: this.changedCryptoValue, time: this.changedTimeIntervalValue }}).then((res) => {
-        this.netWorth = res.data.toFixed(2)
-      })
+      return axios
+        .get("/api/net-worth", {
+          params: {
+            currency: this.dollarValue,
+            crypto: this.changedCryptoValue,
+            time: this.changedTimeIntervalValue,
+          },
+        })
+        .then((res) => {
+          this.netWorth = res.data.toFixed(2);
+        });
     },
     chageDollarValue() {
-      this.dollarValue = this.dollarValue
+      this.dollarValue = this.dollarValue;
       if (
-        this.changedTimeIntervalValue !== '' &&
-        this.changedCryptoValue !== ''
+        this.changedTimeIntervalValue !== "" &&
+        this.changedCryptoValue !== ""
       ) {
-        this.getIncidents()
+        this.getIncidents();
       }
     },
     changeCrypto() {
-      this.changedCryptoValue = this.selectedCrypto
-      if (this.changedTimeIntervalValue !== '') {
-        this.getIncidents()
+      this.changedCryptoValue = this.selectedCrypto;
+      if (this.changedTimeIntervalValue !== "") {
+        this.getIncidents();
       }
     },
     changeTimeInterval() {
-      this.changedTimeIntervalValue = this.selectedTimeInterval
-      if (this.changedCryptoValue !== '') {
-        this.getIncidents()
+      this.changedTimeIntervalValue = this.selectedTimeInterval;
+      if (this.changedCryptoValue !== "") {
+        this.getIncidents();
       }
     },
   },
-}
+};
 </script>
 
 <style>
 .main-content {
   margin: 0 auto;
-  min-height: 80vh;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -235,5 +247,12 @@ h2.net-worth {
   min-width: 0;
   width: 200px;
   fill: #f0b90b;
+}
+
+.advice {
+  font-size: 10px;
+  margin: 0 10px;
+  text-align: center;
+  width: 100%;
 }
 </style>
