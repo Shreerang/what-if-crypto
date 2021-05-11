@@ -176,11 +176,6 @@ export default {
       incidents: "",
     };
   },
-  // computed: {
-  //   country: function() {
-  //     return process.env.COUNTRY_KEY
-  //   }
-  // },
   methods: {
     async getIncidents() {
       return axios
@@ -208,12 +203,14 @@ export default {
       this.changedCryptoValue = this.selectedCrypto;
       if (this.changedTimeIntervalValue !== "") {
         this.getIncidents();
+        this.$ga.event('cryptoClick', 'select', 'selectedCrypto', this.changedCryptoValue)
       }
     },
     changeTimeInterval() {
       this.changedTimeIntervalValue = this.selectedTimeInterval;
       if (this.changedCryptoValue !== "") {
         this.getIncidents();
+        this.$ga.event('timeInterval', 'select', 'selectedTimeInterval', this.changedTimeIntervalValue)
       }
     },
   },

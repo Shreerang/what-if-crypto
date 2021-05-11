@@ -34,7 +34,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [{ src: '~plugins/ga.js', mode: 'client' }],
+  plugins: [],
 
   serverMiddleware: ['~/api/index.js'],
 
@@ -52,7 +52,8 @@ module.exports = {
     '@nuxtjs/dotenv',
 
     // With options
-    ['@nuxtjs/dotenv', { /* module options */ }]
+    ['@nuxtjs/dotenv', { /* module options */ }],
+    '@nuxtjs/google-analytics'
   ],
   /*
   ** Axios module configuration
@@ -61,8 +62,16 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
+  googleAnalytics: {
+    // Options
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
+
   publicRuntimeConfig: {
     country: process.env.COUNTRY_KEY || 'USD',
+    googleAnalytics: {
+      id: process.env.GOOGLE_ANALYTICS_ID
+    }
   },
 
   /*
