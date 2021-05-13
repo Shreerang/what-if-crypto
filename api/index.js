@@ -11,8 +11,9 @@ app.get('/net-worth', async (req, res, next) => {
         `https://api.nomics.com/v1/currencies/ticker?key=` + process.env.API_KEY + `&ids=` + cryptoData + `&convert=` + process.env.COUNTRY_KEY + `&interval=` + timeData
     )
     const finalValue = Number(currencyData) + ((Number(currencyData) * (Number(netWorth.data[0][timeData].price_change_pct) * 100)) / 100)
+    const finalPercent = Number(netWorth.data[0][timeData].price_change_pct) * 100
     // const finalValue = 0;
-    res.json(Number(finalValue))
+    res.json({finalValueData: finalValue, finalPercentData: finalPercent})
 })
 
 // Give nuxt middleware to express

@@ -47,13 +47,16 @@
       <br />
       <h4>
         It would be worth
-        <h2 class="net-worth" v-if="$config.country === 'USD'">
-          ${{ netWorth }}
-        </h2>
-        <h2 class="net-worth" v-if="$config.country === 'INR'">
-          &#8377;{{ netWorth }}
-        </h2>
-        today
+      </h4>
+      <h2 class="net-worth" v-if="$config.country === 'USD'">
+        <span class="magic-color">${{ netWorth }}</span>
+      </h2>
+      <h2 class="net-worth" v-if="$config.country === 'INR'">
+        <span class="magic-color">&#8377;{{ netWorth }}</span>
+      </h2>
+      <h4>today.</h4>
+      <h4>
+        {{ netPercent < 0 ? "Sadly, that's": "That's" }} a {{ netPercent > 100 ? "roaring" : "" }} <span class="magic-color">{{ Math.abs(netPercent) }}%</span> {{ netPercent > 0? "return on investment 🎉": "loss in investment 😢" }}
       </h4>
     </b-row>
     <b-row class="mb-3">
@@ -114,50 +117,51 @@ export default {
     return {
       dollarValue: 10,
       netWorth: 10,
+      netPercent: 100,
 
       selectedCrypto: "",
       cryptoOptions: [
         { value: "", text: "Please select a crypto" },
-        { value: "BTC", text: "Bitcoin" },
-        { value: "ETH", text: "Ethereum" },
-        { value: "BNB", text: "Binance" },
-        { value: "DOGE", text: "Dogecoin" },
-        { value: "XRP", text: "Ripple" },
-        { value: "USDT", text: "Tether" },
-        { value: "ADA", text: "Cardano" },
-        { value: "DOT", text: "Polkadot" },
-        { value: "BCH", text: "Bitcoin Cash" },
-        { value: "LTC", text: "Litecoin" },
-        { value: "UNI", text: "Uniswap Protocol Token" },
-        { value: "LINK", text: "ChainLink" },
+        { value: "BTC", text: "Bitcoin ($BTC)" },
+        { value: "ETH", text: "Ethereum ($ETH)" },
+        { value: "BNB", text: "Binance ($BNB)" },
+        { value: "DOGE", text: "Dogecoin ($DOGE)" },
+        { value: "XRP", text: "Ripple  ($XRP)" },
+        { value: "USDT", text: "Tether ($USDT)" },
+        { value: "ADA", text: "Cardano ($ADA)" },
+        { value: "DOT", text: "Polkadot ($DOT)" },
+        { value: "BCH", text: "Bitcoin Cash ($BCH)" },
+        { value: "LTC", text: "Litecoin ($LTC)" },
+        { value: "UNI", text: "Uniswap Protocol Token ($UNI)" },
+        { value: "LINK", text: "ChainLink ($LINK)" },
         { value: "HEX", text: "HEX" },
-        { value: "VET", text: "VeChain Thor" },
-        { value: "USDC", text: "USD Coin" },
-        { value: "ETC", text: "Ethereum Classic" },
-        { value: "XLM", text: "Stellar" },
-        { value: "SOL", text: "Solana" },
-        { value: "SHIB", text: "Shiba Inu" },
-        { value: "THETA", text: "Theta Token" },
-        { value: "WBTC", text: "Wrapped Bitcoin" },
-        { value: "FIL", text: "Filecoin" },
-        { value: "TRX", text: "Tron" },
+        { value: "VET", text: "VeChain Thor ($VET)" },
+        { value: "USDC", text: "USD Coin ($USDC)" },
+        { value: "ETC", text: "Ethereum Classic ($ETC)" },
+        { value: "XLM", text: "Stellar ($XLM)" },
+        { value: "SOL", text: "Solana ($SOL)" },
+        { value: "SHIB", text: "Shiba Inu ($SHIB)" },
+        { value: "THETA", text: "Theta Token ($THETA)" },
+        { value: "WBTC", text: "Wrapped Bitcoin ($WBTC)" },
+        { value: "FIL", text: "Filecoin ($FIL)" },
+        { value: "TRX", text: "Tron ($TRX)" },
         { value: "EOS", text: "EOS" },
-        { value: "OKB", text: "OKEx Utility Token" },
-        { value: "XMR", text: "Monero" },
-        { value: "BUSD", text: "Binance USD" },
-        { value: "ALGO", text: "Algorand" },
+        { value: "OKB", text: "OKEx Utility Token ($OKB)" },
+        { value: "XMR", text: "Monero ($XMR)" },
+        { value: "BUSD", text: "Binance USD ($BUSD)" },
+        { value: "ALGO", text: "Algorand ($ALGO)" },
         { value: "NEO", text: "NEO" },
-        { value: "FTXTOKEN", text: "FTX Token" },
-        { value: "ATOM", text: "Cosmos" },
-        { value: "LUNA", text: "Luna" },
-        { value: "CAKE", text: "PancakeSwap" },
-        { value: "BSV", text: "Bitcoin SV" },
-        { value: "CETH", text: "Compound Ether" },
-        { value: "IOT", text: "IOTA (MIOTA)" },
-        { value: "AAVE", text: "Aave" },
-        { value: "KLAY", text: "Klaytn" },
-        { value: "MATIC", text: "Polygon" },
-        { value: "HT", text: "Huobi Token" },
+        { value: "FTXTOKEN", text: "FTX Token ($FTXTOKEN)" },
+        { value: "ATOM", text: "Cosmos ($ATOM)" },
+        { value: "LUNA", text: "Luna ($LUNA)" },
+        { value: "CAKE", text: "PancakeSwap ($CAKE)" },
+        { value: "BSV", text: "Bitcoin SV ($BSV)" },
+        { value: "CETH", text: "Compound Ether ($CETH)" },
+        { value: "IOT", text: "IOTA (MIOTA) ($IOT)" },
+        { value: "AAVE", text: "Aave ($AAVE)" },
+        { value: "KLAY", text: "Klaytn ($KLAY)" },
+        { value: "MATIC", text: "Polygon ($MATIC)" },
+        { value: "HT", text: "Huobi Token ($HT)" },
       ],
       changedCryptoValue: "",
 
@@ -187,7 +191,8 @@ export default {
           },
         })
         .then((res) => {
-          this.netWorth = res.data.toFixed(2);
+          this.netWorth = res.data.finalValueData.toFixed(2);
+          this.netPercent = res.data.finalPercentData.toFixed(2);
         });
     },
     chageDollarValue() {
@@ -248,9 +253,13 @@ h1 {
 
 h2 {
   font-size: 4em;
+}
+
+.magic-color {
   background: -webkit-linear-gradient(45deg, #2f25dc, #00ab64 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 1em;
 }
 
 h2.net-worth {
