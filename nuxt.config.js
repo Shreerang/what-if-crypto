@@ -53,7 +53,7 @@ module.exports = {
 
     // With options
     ['@nuxtjs/dotenv', { /* module options */ }],
-    '@nuxtjs/google-analytics', {id: process.env.GOOGLE_ANALYTICS_ID}
+    ['@nuxtjs/google-analytics', {id: process.env.GOOGLE_ANALYTICS_ID}]
   ],
   /*
   ** Axios module configuration
