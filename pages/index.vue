@@ -61,14 +61,15 @@
       </h4>
     </b-row>
     <b-row class="mb-3">
+      <div class="advice">* Not financial advice</div><br />
       <h4 class="ads">
-        Time in market is more important than timing the market!
+        If you haven't yet started investing,
+        <br />
+        get started using one of these crypto currency exchanges/wallets
+        <br />
+        <br />
+        👇
       </h4>
-      <h6 class="ads">
-        Choose one of the crypto currency exchanges/wallets below to get
-        started!
-      </h6>
-      <div class="advice">* Not financial advice</div>
     </b-row>
     <b-row class="brand-logos">
       <b-col>
@@ -264,12 +265,8 @@ body {
   background: linear-gradient(90deg, #effaff 0%, #d9e7ff 100%);
 }
 
-.links {
-  padding-top: 15px;
-}
-
 .card-img {
-  width: 55px;
+  width: 2.5em;
   margin: 2em 0;
 }
 
@@ -305,14 +302,6 @@ h2.net-worth {
   text-align: center;
   justify-content: center;
   align-content: center;
-}
-
-.binance {
-  box-sizing: border-box;
-  margin: 2.2em auto;
-  min-width: 0;
-  width: 200px;
-  fill: #f0b90b;
 }
 
 .advice {

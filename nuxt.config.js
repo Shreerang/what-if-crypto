@@ -69,6 +69,5 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    transpile: ['crypto-icons']
   }
 }
