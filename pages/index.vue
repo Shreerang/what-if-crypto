@@ -21,7 +21,9 @@
           <b-col md class="mb-3">
             <b-input-group class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-input-group-prepend is-text class="hacky-padding">
-                <cryptoicon :symbol="this.selectedCrypto" size="26" generic />
+                <client-only>
+                  <cryptoicon :symbol="this.selectedCrypto" size="26" generic />
+                </client-only>
               </b-input-group-prepend>
               <b-form-select
                 v-model="selectedCrypto"
@@ -41,9 +43,7 @@
         </b-form-row>
       </b-form>
       <br />
-      <h4>
-        It would be worth
-      </h4>
+      <h4>It would be worth</h4>
       <h2 class="net-worth" v-if="$config.country === 'USD'">
         <span class="magic-color">${{ netWorth }}</span>
       </h2>
@@ -52,7 +52,12 @@
       </h2>
       <h4>today.</h4>
       <h4>
-        {{ netPercent < 0 ? "Sadly, that's": "That's" }} a {{ netPercent > 100 ? "roaring" : "" }} <span class="magic-color">{{ Math.abs(netPercent) }}%</span> {{ netPercent > 0? "return on investment 🎉": "loss in investment 😢" }}
+        {{ netPercent < 0 ? "Sadly, that's" : "That's" }} a
+        {{ netPercent > 100 ? "roaring" : "" }}
+        <span class="magic-color">{{ Math.abs(netPercent) }}%</span>
+        {{
+          netPercent > 0 ? "return on investment 🎉" : "loss in investment 😢"
+        }}
       </h4>
     </b-row>
     <b-row class="mb-3">
@@ -60,29 +65,46 @@
         Time in market is more important than timing the market!
       </h4>
       <h6 class="ads">
-        Choose one of the crypto currency exchanges/wallets below to get started!
+        Choose one of the crypto currency exchanges/wallets below to get
+        started!
       </h6>
       <div class="advice">* Not financial advice</div>
     </b-row>
     <b-row class="brand-logos">
       <b-col>
         <a href="https://uphold.com/signup?referral=28c2e578d8" target="_blank">
-          <img class="card-img" src="../assets/uphold-icon.png" alt="Uphold logo" />
+          <img
+            class="card-img"
+            src="../assets/uphold-icon.png"
+            alt="Uphold logo"
+          />
         </a>
       </b-col>
       <b-col>
         <a href="https://www.binance.com/en">
-          <img class="card-img" src="../assets/binanceus-icon.png" alt="Binance logo" />
+          <img
+            class="card-img"
+            src="../assets/binanceus-icon.png"
+            alt="Binance logo"
+          />
         </a>
       </b-col>
       <b-col>
         <a href="https://www.coinbase.com/join/patwar_t" target="_blank">
-          <img class="card-img" src="../assets/coinbase-icon.png" alt="Coinbase logo" />
+          <img
+            class="card-img"
+            src="../assets/coinbase-icon.png"
+            alt="Coinbase logo"
+          />
         </a>
       </b-col>
       <b-col>
         <a href="https://join.robinhood.com/shreerp4" target="_blank">
-          <img class="card-img" src="../assets/robinhood-icon.png" alt="Robinhood logo" />
+          <img
+            class="card-img"
+            src="../assets/robinhood-icon.png"
+            alt="Robinhood logo"
+          />
         </a>
       </b-col>
     </b-row>
@@ -203,14 +225,24 @@ export default {
       this.changedCryptoValue = this.selectedCrypto;
       if (this.changedTimeIntervalValue !== "") {
         this.getIncidents();
-        this.$ga.event('cryptoClick', 'select', 'selectedCrypto', this.changedCryptoValue)
+        this.$ga.event(
+          "cryptoClick",
+          "select",
+          "selectedCrypto",
+          this.changedCryptoValue
+        );
       }
     },
     changeTimeInterval() {
       this.changedTimeIntervalValue = this.selectedTimeInterval;
       if (this.changedCryptoValue !== "") {
         this.getIncidents();
-        this.$ga.event('timeInterval', 'select', 'selectedTimeInterval', this.changedTimeIntervalValue)
+        this.$ga.event(
+          "timeInterval",
+          "select",
+          "selectedTimeInterval",
+          this.changedTimeIntervalValue
+        );
       }
     },
   },
@@ -244,7 +276,6 @@ body {
 h1 {
   font-size: 3em;
 }
-
 
 h2 {
   font-size: 4em;
