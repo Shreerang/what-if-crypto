@@ -52,8 +52,7 @@ module.exports = {
     '@nuxtjs/dotenv',
 
     // With options
-    ['@nuxtjs/dotenv', { /* module options */ }],
-    ['@nuxtjs/google-analytics', {id: process.env.GOOGLE_ANALYTICS_ID}]
+    ['@nuxtjs/dotenv', { /* module options */ }]
   ],
   /*
   ** Axios module configuration
@@ -62,16 +61,8 @@ module.exports = {
     // See https://github.com/nuxt-community/axios-module#options
   },
 
-  googleAnalytics: {
-    // Options
-    id: process.env.GOOGLE_ANALYTICS_ID
-  },
-
   publicRuntimeConfig: {
-    country: process.env.COUNTRY_KEY || 'USD',
-    googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID
-    }
+    country: process.env.COUNTRY_KEY || 'USD'
   },
 
   /*
