@@ -19,7 +19,7 @@
     "cross-env": "latest",
     "express": "latest",
     "nuxt": "latest",
-    "vue-cryptocurrency-icons": "^0.2.5"
+    "vue-cryptoicon": "^0.17.1-b"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",

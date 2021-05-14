@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row class="main-content">
-      <h1>If only!</h1>
+      <h1>What if 🤔</h1>
       <b-form>
         <h4>you had invested</h4>
         <br />
@@ -21,11 +21,7 @@
           <b-col md class="mb-3">
             <b-input-group class="mb-2 mr-sm-2 mb-sm-0" size="lg">
               <b-input-group-prepend is-text class="hacky-padding">
-                <IconCrypto
-                  :coinname="this.selectedCrypto"
-                  color="color"
-                  format="svg"
-                />
+                <cryptoicon :symbol="this.selectedCrypto" size="26" generic />
               </b-input-group-prepend>
               <b-form-select
                 v-model="selectedCrypto"
@@ -110,7 +106,6 @@
 
 <script>
 import axios from "axios";
-import IconCrypto from "vue-cryptocurrency-icons";
 
 export default {
   data() {
@@ -294,9 +289,5 @@ h2.net-worth {
   margin: 0 10px;
   text-align: center;
   width: 100%;
-}
-
-.hacky-padding .input-group-text {
-  padding: 7px !important;
 }
 </style>
