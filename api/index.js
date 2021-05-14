@@ -12,7 +12,6 @@ app.get('/net-worth', async (req, res, next) => {
     )
     const finalValue = Number(currencyData) + ((Number(currencyData) * (Number(netWorth.data[0][timeData].price_change_pct) * 100)) / 100)
     const finalPercent = Number(netWorth.data[0][timeData].price_change_pct) * 100
-    // const finalValue = 0;
     res.json({finalValueData: finalValue, finalPercentData: finalPercent})
 })
 

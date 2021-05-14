@@ -35,7 +35,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {src: '~/plugins/crypto-icons', mode: 'client'}],
+    {src: '~/plugins/crypto-icons.js', mode: 'client'}],
 
   serverMiddleware: ['~/api/index.js'],
 
@@ -69,5 +69,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    transpile: ['crypto-icons']
   }
 }
