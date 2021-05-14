@@ -43,25 +43,35 @@
         </b-form-row>
       </b-form>
       <br />
-      <h4>It would be worth</h4>
-      <h2 class="net-worth" v-if="$config.country === 'USD'">
-        <span class="magic-color">${{ netWorth }}</span>
-      </h2>
-      <h2 class="net-worth" v-if="$config.country === 'INR'">
-        <span class="magic-color">&#8377;{{ netWorth }}</span>
-      </h2>
-      <h4>today.</h4>
-      <h4>
-        {{ netPercent < 0 ? "Sadly, that's" : "That's" }} a
-        {{ netPercent > 100 ? "roaring" : "" }}
-        <span class="magic-color">{{ Math.abs(netPercent) }}%</span>
-        {{
-          netPercent > 0 ? "return on investment 🎉" : "loss in investment 😢"
-        }}
-      </h4>
+      <div v-if="changedTimeIntervalValue && changedCryptoValue">
+        <h4>It would be worth</h4>
+        <h2 class="net-worth" v-if="$config.country === 'USD'">
+          <span class="magic-color">${{ netWorth }}</span>
+        </h2>
+        <h2 class="net-worth" v-if="$config.country === 'INR'">
+          <span class="magic-color">&#8377;{{ netWorth }}</span>
+        </h2>
+        <h4>today.</h4>
+        <h4>
+          {{ netPercent < 0 ? "Sadly, that's" : "That's" }} a
+          {{ netPercent > 100 ? "roaring" : "" }}
+          <span class="magic-color">{{ Math.abs(netPercent) }}%</span>
+          {{
+            netPercent > 0 ? "return on investment 🎉" : "loss in investment 😢"
+          }}
+        </h4>
+        <br />
+      </div>
     </b-row>
     <b-row class="mb-3">
-      <div class="advice">* Not financial advice</div><br />
+      <div class="advice">* Not financial advice</div>
+      <br />
+      <h4 class="ads" v-if="changedTimeIntervalValue">
+        <client-only>
+          <cryptoicon :symbol="this.selectedCrypto" size="26" generic />
+        </client-only>
+        {{selectedCrypto}} is currently priced at <span class="magic-color">${{netPrice }}</span>
+      </h4>
       <h4 class="ads">
         If you haven't yet started investing,
         <br />
@@ -136,6 +146,7 @@ export default {
       dollarValue: 10,
       netWorth: 10,
       netPercent: 100,
+      netPrice: 0,
 
       selectedCrypto: "",
       cryptoOptions: [
@@ -211,6 +222,7 @@ export default {
         .then((res) => {
           this.netWorth = res.data.finalValueData.toFixed(2);
           this.netPercent = res.data.finalPercentData.toFixed(2);
+          this.netPrice = res.data.currentPriceData.toFixed(2);
         });
     },
     chageDollarValue() {
@@ -226,24 +238,12 @@ export default {
       this.changedCryptoValue = this.selectedCrypto;
       if (this.changedTimeIntervalValue !== "") {
         this.getIncidents();
-        this.$ga.event(
-          "cryptoClick",
-          "select",
-          "selectedCrypto",
-          this.changedCryptoValue
-        );
       }
     },
     changeTimeInterval() {
       this.changedTimeIntervalValue = this.selectedTimeInterval;
       if (this.changedCryptoValue !== "") {
         this.getIncidents();
-        this.$ga.event(
-          "timeInterval",
-          "select",
-          "selectedTimeInterval",
-          this.changedTimeIntervalValue
-        );
       }
     },
   },
