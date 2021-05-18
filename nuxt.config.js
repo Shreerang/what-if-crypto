@@ -12,7 +12,17 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'After watching the cryptocurrency bull run, have you ever wondered, if only you had invested a few bucks in crypto a few days, months, years ago?', content: pkg.description }
+      { hid: 'description', name: 'After watching the cryptocurrency bull run, have you ever wondered, if only you had invested a few bucks in crypto a few days, months, years ago?', content: pkg.description },
+
+      { property: 'og:site_name', content: 'What If Crypto' },
+      { property: 'og:title', content: 'What If Crypto - The ultimate crypto investment time machine' },
+      { property: 'og:description', content: 'A "What-if" #Crypto analysis tool 📈 that will help you with making informed #investment decisions 💰' },
+      { property: 'og:url', content: 'https://what-if-crypto.herokuapp.com/' },
+
+      { property: 'twitter:title', content: 'What If Crypto - The ultimate crypto investment time machine' },
+      { property: 'twitter:description', content: 'A "What-if" #Crypto analysis tool 📈 that will help you with making informed #investment decisions 💰' },
+      { property: 'twitter:url', content: 'https://what-if-crypto.herokuapp.com/' },
+      { property: 'twitter:card', content: 'summary' }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },

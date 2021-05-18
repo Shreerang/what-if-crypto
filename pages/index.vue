@@ -61,25 +61,26 @@
           }}
         </h4>
         <br />
+        
       </div>
     </b-row>
     <b-row class="mb-3">
       <div class="advice">* Not financial advice</div>
       <br />
-      <h4 class="ads" v-if="changedTimeIntervalValue">
+      <h5 class="ads" v-if="changedTimeIntervalValue">
         <client-only>
           <cryptoicon :symbol="this.selectedCrypto" size="26" generic />
         </client-only>
-        {{selectedCrypto}} is currently priced at <span class="magic-color">${{netPrice }}</span>
-      </h4>
-      <h4 class="ads">
+        {{selectedCrypto}} is currently priced at <span class="magic-color"><b>${{netPrice }}</b></span>
+      </h5>
+      <h5 class="ads">
         If you haven't yet started investing,
         <br />
         get started using one of these crypto currency exchanges/wallets
         <br />
         <br />
         👇
-      </h4>
+      </h5>
     </b-row>
     <b-row class="brand-logos">
       <b-col>
@@ -267,7 +268,7 @@ body {
 
 .card-img {
   width: 2.5em;
-  margin: 2em 0;
+  margin: 0 0 1em 0;
 }
 
 h1 {
