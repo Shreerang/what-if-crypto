@@ -71,7 +71,9 @@
         <client-only>
           <cryptoicon :symbol="this.selectedCrypto" size="26" generic />
         </client-only>
-        {{selectedCrypto}} is currently priced at <span class="magic-color"><b>${{netPrice }}</b></span>
+        {{selectedCrypto}} is currently priced at <span class="magic-color"><b>${{ netPrice }}</b></span>
+        <br /><br />
+        ${{selectedCrypto}} was at it's all time high price of <span class="magic-color"><b>${{ allTimeHigh }}</b> on {{ new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(athWhen) }}</span>
       </h5>
       <h5 class="ads">
         If you haven't yet started investing,
@@ -122,7 +124,7 @@
     </b-row>
     <b-row>
       <p class="ads">
-        Developed by <a href="https://twitter.com/shreerangp">@shreerangp</a>
+        Developed with 💞 by <a href="https://twitter.com/shreerangp">@shreerangp</a>
       </p>
     </b-row>
     <b-row>
@@ -144,12 +146,14 @@ import axios from "axios";
 export default {
   data() {
     return {
-      dollarValue: 10,
-      netWorth: 10,
+      dollarValue: 100,
+      netWorth: 100,
       netPercent: 100,
       netPrice: 0,
+      allTimeHigh: 0,
+      athWhen: '',
 
-      selectedCrypto: "",
+      selectedCrypto: "DOGE",
       cryptoOptions: [
         { value: "", text: "Please select a crypto" },
         { value: "BTC", text: "Bitcoin ($BTC)" },
@@ -193,7 +197,7 @@ export default {
         { value: "MATIC", text: "Polygon ($MATIC)" },
         { value: "HT", text: "Huobi Token ($HT)" },
       ],
-      changedCryptoValue: "",
+      changedCryptoValue: "DOGE",
 
       selectedTimeInterval: null,
       timeIntervalOptions: [
@@ -224,6 +228,8 @@ export default {
           this.netWorth = res.data.finalValueData.toFixed(2);
           this.netPercent = res.data.finalPercentData.toFixed(2);
           this.netPrice = res.data.currentPriceData.toFixed(2);
+          this.allTimeHigh = res.data.allTimeHighData.toFixed(2);
+          this.athWhen = new Date(res.data.athWhenData)
         });
     },
     chageDollarValue() {
@@ -260,10 +266,6 @@ export default {
   align-items: center;
   text-align: center;
   flex-direction: column;
-}
-
-body {
-  background: linear-gradient(90deg, #effaff 0%, #d9e7ff 100%);
 }
 
 .card-img {
