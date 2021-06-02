@@ -42,7 +42,6 @@
           </b-col>
         </b-form-row>
       </b-form>
-      <br />
       <div v-if="changedTimeIntervalValue && changedCryptoValue">
         <h4>It would be worth</h4>
         <h2 class="net-worth" v-if="$config.country === 'USD'">
@@ -126,9 +125,12 @@
       <p class="ads">
         Developed with 💞 by <a href="https://twitter.com/shreerangp">@shreerangp</a>
       </p>
+      <p class="ads">
+        Happy Pride month! 🏳️‍🌈
+      </p>
     </b-row>
     <b-row>
-      <p class="ads">
+      <p class="ads special-ads">
         <a
           href="https://nomics.com"
           target="_blank"
@@ -298,6 +300,11 @@ h2.net-worth {
   text-align: center;
   width: 100%;
   padding: 10px 10px;
+  margin-bottom: 0;
+}
+
+.special-ads {
+  font-size: 10px;
 }
 
 .brand-logos {
