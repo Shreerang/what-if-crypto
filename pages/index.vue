@@ -74,14 +74,11 @@
         <br /><br />
         ${{selectedCrypto}} was at it's all time high price of <span class="magic-color"><b>${{ allTimeHigh }}</b> on {{ new Intl.DateTimeFormat('en-US', {year: 'numeric', month: 'long', day: 'numeric'}).format(athWhen) }}</span>
       </h5>
-      <h5 class="ads">
+      <p class="ads">
         If you haven't yet started investing,
         <br />
         get started using one of these crypto currency exchanges/wallets
-        <br />
-        <br />
-        👇
-      </h5>
+      </p>
     </b-row>
     <b-row class="brand-logos">
       <b-col>
@@ -123,13 +120,31 @@
     </b-row>
     <b-row>
       <p class="ads">
-        Developed with 💞 by <a href="https://twitter.com/shreerangp">@shreerangp</a>
+        If you are already investing in cryptocurrencies,
+        <br />
+        you are liable to declare the income and pay taxes on the income
+        <br />
+        and CoinTracker can help with that.
       </p>
+      <b-col class="special-col">
+        <a href="https://www.cointracker.io/i/8TpD1OI4LJlI" target="_blank">
+          <img
+            class="card-img"
+            src="../assets/cointracker-icon.jpeg"
+            alt="Cointracker logo"
+          />
+        </a>
+      </b-col>
+    </b-row>
+    <b-row>
       <p class="ads">
         Happy Pride month! 🏳️‍🌈
       </p>
     </b-row>
     <b-row>
+      <p class="ads">
+        Developed with 💞 by <a href="https://twitter.com/shreerangp">@shreerangp</a>
+      </p>
       <p class="ads special-ads">
         <a
           href="https://nomics.com"
@@ -260,6 +275,11 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: var(--secondary);
+  color: var(--light);
+}
+
 .main-content {
   margin: 0 auto;
   min-height: 60vh;
@@ -284,7 +304,7 @@ h2 {
 }
 
 .magic-color {
-  background: -webkit-linear-gradient(45deg, #2f25dc, #00ab64 80%);
+  background: -webkit-linear-gradient(45deg, #FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1em;
@@ -303,6 +323,11 @@ h2.net-worth {
   margin-bottom: 0;
 }
 
+.ads a {
+  color: var(--light);
+  text-decoration: underline;
+}
+
 .special-ads {
   font-size: 10px;
 }
@@ -319,5 +344,9 @@ h2.net-worth {
   margin: 0 10px;
   text-align: center;
   width: 100%;
+}
+
+.special-col {
+  text-align: center;
 }
 </style>
