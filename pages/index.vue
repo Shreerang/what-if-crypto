@@ -304,7 +304,7 @@ h2 {
 }
 
 .magic-color {
-  background: -webkit-linear-gradient(45deg, #FF0018, #FFA52C, #FFFF41, #008018, #0000F9, #86007D 80%);
+  background: -webkit-linear-gradient(45deg, pink, yellow 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 1em;
