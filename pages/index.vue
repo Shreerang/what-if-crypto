@@ -205,6 +205,8 @@ export default {
         { value: "FTXTOKEN", text: "FTX Token ($FTXTOKEN)" },
         { value: "ATOM", text: "Cosmos ($ATOM)" },
         { value: "LUNA", text: "Luna ($LUNA)" },
+        { value: "RUNE", text: "Thorchain ($RUNE)" },
+        { value: "CSPR", text: "Casper ($CSPR)" },
         { value: "CAKE", text: "PancakeSwap ($CAKE)" },
         { value: "BSV", text: "Bitcoin SV ($BSV)" },
         { value: "CETH", text: "Compound Ether ($CETH)" },
