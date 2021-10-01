@@ -136,11 +136,11 @@
         </a>
       </b-col>
     </b-row>
-    <b-row>
+    <!-- <b-row>
       <p class="ads">
         Happy Pride month! 🏳️‍🌈
       </p>
-    </b-row>
+    </b-row> -->
     <b-row>
       <p class="ads">
         Developed with 💞 by <a href="https://twitter.com/shreerangp">@shreerangp</a>
