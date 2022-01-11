@@ -240,7 +240,7 @@ export default {
         { value: "7d", text: "Last week" },
         { value: "30d", text: "Last month" },
         { value: "365d", text: "Last year" },
-        { value: "ytd", text: "on Jan 1, 2021" },
+        { value: "ytd", text: "on Jan 1, 2022" },
       ],
       changedTimeIntervalValue: "",
 
