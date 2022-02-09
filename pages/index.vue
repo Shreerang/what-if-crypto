@@ -80,26 +80,6 @@
         get started using one of these crypto currency exchanges/wallets
       </p>
     </b-row>
-    
-    <b-row>
-      <p class="ads">
-        If you are already investing in cryptocurrencies,
-        <br />
-        you are liable to declare the income and pay taxes on the income
-        <br />
-        and CoinTracker can help with that.
-      </p>
-      <b-col class="special-col">
-        <a href="https://www.cointracker.io/i/8TpD1OI4LJlI" target="_blank">
-          <img
-            class="card-img"
-            src="../assets/cointracker-icon.jpeg"
-            alt="Cointracker logo"
-          />
-        </a>
-      </b-col>
-    </b-row>
-
     <b-row class="brand-logos">
       <b-col>
         <a href="https://uphold.com/signup?referral=28c2e578d8" target="_blank">
@@ -134,6 +114,24 @@
             class="card-img"
             src="../assets/robinhood-icon.png"
             alt="Robinhood logo"
+          />
+        </a>
+      </b-col>
+    </b-row>
+    <b-row>
+      <p class="ads">
+        If you are already investing in cryptocurrencies,
+        <br />
+        you are liable to declare the income and pay taxes on the income
+        <br />
+        and CoinTracker can help with that.
+      </p>
+      <b-col class="special-col">
+        <a href="https://www.cointracker.io/i/8TpD1OI4LJlI" target="_blank">
+          <img
+            class="card-img"
+            src="../assets/cointracker-icon.jpeg"
+            alt="Cointracker logo"
           />
         </a>
       </b-col>
