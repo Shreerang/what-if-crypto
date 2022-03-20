@@ -229,6 +229,13 @@ export default {
         { value: "SAND", text: "The Sandbox ($SAND)" },
         { value: "CRV", text: "Curve Dao Token ($CRV)" },
         { value: "SUSHI", text: "SushiSwap ($SUSHI)" },
+        { value: "1INCH", text: "1inch Network ($1INCH)"},
+        { value: "APE", text: "ApeCoin ($APE)"},
+        { value: "AR", text: "Arweave ($AR)"},
+        { value: "BADGER", text: "Badger ($BADGER)"},
+        { value: "BAL", text: "Balancer ($BAL)"},
+        { value: "BNT", text: "Bancor ($BNT)"},
+        { value: "MANA", text: "Decentraland ($MANA)"},
       ],
       changedCryptoValue: "DOGE",
 
