@@ -236,6 +236,13 @@ export default {
         { value: "BAL", text: "Balancer ($BAL)"},
         { value: "BNT", text: "Bancor ($BNT)"},
         { value: "MANA", text: "Decentraland ($MANA)"},
+        { value: "GALA", text: "Gala ($GALA)"},
+        { value: "KP3R", text: "Keep3rV1 ($KP3R)"},
+        { value: "KSM", text: "Kusama ($KSM)"},
+        { value: "LRC", text: "Loopring ($LRC)"},
+        { value: "MOVR", text: "MoonRiver ($MOVR)"},
+        { value: "NU", text: "NuCypher ($NU)"},
+        { value: "RAY", text: "Raydium ($RAY)"},
       ],
       changedCryptoValue: "DOGE",
 
